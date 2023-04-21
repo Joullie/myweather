@@ -2,12 +2,10 @@ const apiKey = 'd96c31f827c34768313a36e97e723dd8'
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather'
 
 // Verifica se as informações de localização estão no localStorage.
-if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const { latitude, longitude } = position.coords;
-        localStorage.setItem('location', JSON.stringify({ latitude, longitude }));
-        const url = `${apiUrl}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+const storedLocation = JSON.parse(localStorage.getItem('location'))
+if (storedLocation) {
+  const { latitude, longitude } = storedLocation
+  const url = `${apiUrl}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`
 
   fetch(url)
     .then(response => response.json())
@@ -29,14 +27,7 @@ if ('geolocation' in navigator) {
       const { latitude, longitude } = position.coords
       localStorage.setItem('location', JSON.stringify({ latitude, longitude }))
       const url = `${apiUrl}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`
-      
-       if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const { latitude, longitude } = position.coords;
-        localStorage.setItem('location', JSON.stringify({ latitude, longitude }));
-        const url = `${apiUrl}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-      
+
       fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -51,14 +42,11 @@ if ('geolocation' in navigator) {
             'icon'
           ).src = `https://openweathermap.org/img/w/${weather[0].icon}.png`
         })
-       .catch(error => console.error(error));
-      },
-      error => {
-        console.error(error);
-        alert('Impossível obter localização.');
-      }
-    );
-  } else {
-    console.log('Geolocalização não está disponível.');
-  }
+        .catch(error => console.error(error))
+    },
+    error => {
+      console.error(error)
+      alert('Impossível obter localização.')
+    }
+  )
 }
