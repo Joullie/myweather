@@ -7,4 +7,4 @@ Obs: Permitir o acesso à localização no navegador.
 
 ##
 
-<a href="">Live Preview<a>
+<a href="https://myweather-delta.vercel.app/">Live Preview<a>
