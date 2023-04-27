@@ -4,6 +4,22 @@
   padding: 0;
 }
 
+header {
+  background-color:#028096;
+  ;
+  padding: 20px; 
+  border-bottom-style: groove;
+  border-color: #028096;
+}
+
+.top {
+  color: white;
+  font-size: 24px;
+  position: relative;
+  text-align: left;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
   background-color: #e2f9fa;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -61,40 +77,40 @@ h1 {
 }
 
 @media (max-width: 767px) {
-  h1 {
-    font-size: 60px;
-    padding-top: 20px;
+  .container {
+    padding: 10px;
   }
-  
-  .location {
-    font-size: 22px;
-  }
-  
-  #icon {
-    width: 80px;
+
+  .weather {
+    border-radius: 10px;
   }
   
   #temp {
-    font-size: 36px;
-  }
-  
-  #desc {
-    font-size: 22px;
-  }
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 80px;
-    padding-top: 80px;
-  }
-  
-  .location {
     font-size: 30px;
   }
   
-  #icon {
-    width: 100px;
+  #desc {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  #temp {
+    font-size: 60px;
+  }
+  
+  #desc {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
   }
   
   #temp {
