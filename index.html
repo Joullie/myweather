@@ -2,6 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My Weather</title>
     <link rel="stylesheet" href="style.css" />
     <script
@@ -10,17 +11,19 @@
     ></script>
   </head>
   <body>
-    <h1>My Weather</h1>
+    <header>
+      <div class="top">My Weather</div>
+    </header>
     <div class="container">
-      <div class="location">
-        <i class="fa-solid fa-location-dot" style="color: #353939"></i>
-        <p id="city"></p>
-        <p id="country"></p>
-      </div>
       <div class="weather">
         <img id="icon" src="" />
         <p id="temp"></p>
         <p id="desc"></p>
+        <div class="location">
+          <i class="fa-solid fa-location-dot" style="color: #353939"></i>
+          <p id="city"></p>
+          <p id="country"></p>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
